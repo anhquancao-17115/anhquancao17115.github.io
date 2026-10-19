@@ -159,16 +159,30 @@ const PRIVATE_LETTERS = {
     sign:"Quân"
 };
 
+
 const COMMON_LETTER = {
- title: "Gửi những đóa hoa của lớp mình",
- lines: [
-  {text:"Hôm nay là một dịp thật đẹp để nói lời cảm ơn.",secret:"Cảm ơn bạn vì đã là một phần của lớp mình, với cá tính và màu sắc rất riêng."},
-  {text:"Mong bạn luôn vui vẻ và tự tin.",secret:"Mong bạn luôn được tôn trọng, được lắng nghe và có đủ can đảm để theo đuổi những điều mình yêu thích."},
-  {text:"Hãy luôn nhớ rằng bạn có giá trị theo cách riêng.",secret:"Bạn không cần phải giống bất kỳ ai để trở nên đặc biệt. Chỉ cần là chính mình, bạn đã có nét rực rỡ của riêng bạn rồi."},
-  {text:"Chúc bạn một ngày 20/10 thật nhiều niềm vui.",secret:"Chúc những ngày sắp tới của bạn có thật nhiều tiếng cười, tình bạn đẹp và những điều nhỏ xinh khiến bạn hạnh phúc."}
- ],
- sign:"Tặng bạn với tình yêu thương cao nhất ♡"
+  title: "Gửi những đóa hoa của lớp mình",
+  lines: [
+    {
+      text: "Hôm nay là một dịp thật đẹp để nói lời cảm ơn.",
+      secret: "Cảm ơn bạn vì đã là một phần của lớp mình, với cá tính và màu sắc rất riêng."
+    },
+    {
+      text: "Mong bạn luôn vui vẻ và tự tin.",
+      secret: "Mong bạn luôn được tôn trọng, được lắng nghe và có đủ can đảm để theo đuổi những điều mình yêu thích."
+    },
+    {
+      text: "Hãy luôn nhớ rằng bạn có giá trị theo cách riêng.",
+      secret: "Bạn không cần phải giống bất kỳ ai để trở nên đặc biệt. Chỉ cần là chính mình, bạn đã có nét rực rỡ của riêng bạn rồi."
+    },
+    {
+      text: "Chúc bạn một ngày 20/10 thật nhiều niềm vui.",
+      secret: "Chúc những ngày sắp tới của bạn có thật nhiều tiếng cười, tình bạn đẹp và những điều nhỏ xinh khiến bạn hạnh phúc."
+    }
+  ],
+  sign: "Tặng bạn với tình yêu thương cao nhất ♡"
 };
+
 
 const screens=[...document.querySelectorAll('.screen')];
 function showScreen(id){screens.forEach(s=>s.classList.toggle('active',s.id===id));window.scrollTo({top:0,behavior:'smooth'});}
