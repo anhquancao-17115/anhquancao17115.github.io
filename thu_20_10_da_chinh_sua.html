@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fff3f8">
+<title>Những bức thư chưa gửi · 20/10</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif:wght@400;500;600&display=swap');
+:root{--ink:#70455a;--rose:#b95783;--pink:#f4bfd6;--line:#efd4e1;--paper:#fffafd;--gold:#d9b878}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Serif",Georgia,"Times New Roman",serif;color:var(--ink)}
+body{min-height:100svh;background:radial-gradient(ellipse at 50% 18%,#fff 0,#fff5fa 48%,#f7dfeb 100%)}
+button,input{font:inherit}button{cursor:pointer}
+.screen{display:none;min-height:100svh}.screen.active{display:flex}
+#intro{align-items:center;justify-content:center;padding:24px}
+.intro-inner{width:min(650px,100%);text-align:center;animation:rise .8s ease both}
+.eyebrow{font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#b66d91}
+h1{font-family:"Cormorant Garamond","Noto Serif",Georgia,serif;font-size:clamp(35px,7vw,68px);font-weight:400;line-height:1.03;color:#a94e79;margin:16px 0}
+.intro-copy{font-size:16px;line-height:1.7;color:#8c6578;margin:0 auto 22px;max-width:460px}
+.bouquet-button{display:block;width:min(420px,100%);margin:0 auto 17px;padding:0;border:0;border-radius:26px;overflow:hidden;background:#fbe5ef;box-shadow:0 22px 55px #9f52751c;transition:transform .35s,box-shadow .35s;position:relative}
+.bouquet-button:hover,.bouquet-button:focus-visible{transform:translateY(-4px) scale(1.01);box-shadow:0 26px 65px #9f52752b;outline:2px solid #e6a9c5;outline-offset:4px}
+.bouquet-button img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.tap{font:600 13px system-ui,sans-serif;letter-spacing:.06em;color:#b45d84;animation:pulse 1.8s infinite}
+#nameScreen{align-items:center;justify-content:center;padding:24px}
+.name-card{width:min(440px,100%);background:#fffafde8;border:1px solid #f0d8e4;border-radius:28px;padding:clamp(25px,6vw,42px);text-align:center;box-shadow:0 24px 70px #8b49631c;backdrop-filter:blur(14px);animation:rise .5s ease both}
+.flower-mark{font-size:34px;margin-bottom:12px}
+h2{font-family:"Cormorant Garamond","Noto Serif",Georgia,serif;font-weight:500;font-size:clamp(27px,5vw,38px);color:#a94e79;margin:8px 0 13px}
+.muted{font-size:15px;line-height:1.7;color:#8c687a}
+.name-input{width:100%;margin:15px 0 12px;padding:15px 17px;border-radius:15px;border:1px solid #e8c5d7;background:#fff;color:#70455a;outline:none;font:16px system-ui,sans-serif;transition:border .2s,box-shadow .2s}
+.name-input:focus{border-color:#c76d99;box-shadow:0 0 0 4px #f5dbe8}
+.primary{border:0;border-radius:999px;padding:13px 23px;color:#fff;background:linear-gradient(120deg,#d77fa5,#b95883);box-shadow:0 8px 20px #bd648c2c;font:600 13px system-ui,sans-serif;transition:transform .2s}
+.primary:hover{transform:translateY(-2px)}
+.full{width:100%}.tiny{font:12px/1.6 system-ui,sans-serif;color:#a17b8e;margin-top:16px}
+#error{min-height:18px;color:#b34470;font:13px system-ui,sans-serif}
+#letterScreen{position:relative;align-items:center;justify-content:center;padding:90px 20px 100px;overflow:hidden}
+.letter-wrap{position:relative;width:min(690px,100%);perspective:1200px;z-index:1}
+.letter{position:relative;background:linear-gradient(145deg,#fffefd,#fff7fb);border:1px solid #ecd2df;border-radius:25px;padding:clamp(27px,6vw,54px);box-shadow:0 28px 80px #88445d1b;transform-style:preserve-3d;transition:transform .18s ease;overflow:hidden}
+.letter:before{content:"";position:absolute;inset:10px;border:1px solid #f1dce6;border-radius:18px;pointer-events:none}
+.letter-top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;position:relative}
+.letter-top .flower{font-size:42px;filter:drop-shadow(0 5px 7px #c46d9622);transform:rotate(-12deg);transform-origin:center}
+.letter-top .date{text-align:right;font:600 10px/1.7 system-ui,sans-serif;letter-spacing:.18em;color:#bd7898}
+.letter h2{font-family:"Cormorant Garamond","Noto Serif",Georgia,serif;margin:16px 0 10px;font-size:clamp(28px,5vw,42px)}
+.to-line{font-size:15px;color:#a36b85;font-style:italic;margin:0 0 23px}
+.letter-body{font-size:17px;line-height:1.9;color:#77576a;position:relative}
+.letter-body p{margin:0;white-space:pre-line}.letter-body{overflow-wrap:anywhere}
+.letter-sign{margin-top:26px;text-align:right;color:#ad5a83;font-size:16px;font-style:italic;line-height:1.7}
+.letter-footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px;font:11px system-ui,sans-serif;color:#bd88a1;letter-spacing:.05em}
+.back{position:fixed;left:max(18px,env(safe-area-inset-left));top:max(18px,env(safe-area-inset-top));z-index:3;border:1px solid #efd4e1;border-radius:999px;padding:10px 14px;background:#fffafadd;color:#a95d82;font:12px system-ui,sans-serif}
+.petal{position:fixed;z-index:0;pointer-events:none;font-size:18px;opacity:.18;animation:drift 9s ease-in-out infinite}
+.p1{top:17%;left:7%}.p2{top:62%;right:8%;animation-delay:-4s}.p3{top:82%;left:12%;animation-delay:-2s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.65}50%{opacity:1}}
+@keyframes heartbeat{0%,100%{transform:scale(1)}8%{transform:scale(1.08)}16%{transform:scale(1)}24%{transform:scale(1.05)}32%{transform:scale(1)}}
+@keyframes drift{0%,100%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(10px,-15px,0) rotate(12deg)}}
+@media(max-width:600px){#letterScreen{padding:82px 13px 95px}.letter{padding:27px 23px}.letter-body{font-size:16px}.letter-top .flower{font-size:35px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="petal p1">✿</div><div class="petal p2">❀</div><div class="petal p3">✧</div>
+
+<section id="intro" class="screen active">
+ <div class="intro-inner">
+  <div class="eyebrow">20 tháng 10 · Ngày Phụ nữ Việt Nam</div>
+  <h1>Những bức thư<br>chưa gửi</h1>
+  <p class="intro-copy">Có một món quà nhỏ được chuẩn bị bằng tất cả sự trân trọng dành cho những cô gái tuyệt vời của lớp mình.</p>
+  <button class="bouquet-button" id="bouquetBtn" aria-label="Bấm vào bó hoa để tiếp tục">
+   <img src="https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=1200&q=85" alt="Bó hoa thật dịu dàng" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1494972308805-463bc619d34b?auto=format&fit=crop&w=1200&q=85'">
+  </button>
+  <div class="tap">bấm vào bó hoa ♡</div>
+ </div>
+</section>
+
+<section id="nameScreen" class="screen">
+ <div class="name-card">
+  <div class="flower-mark">🌷</div>
+  <div class="eyebrow">Một món quà nhỏ dành riêng cho bạn</div>
+  <h2>Bạn tên là gì?</h2>
+  <p class="muted">Hãy nhập tên để tìm bức thư dành cho bạn nhé. Nếu chưa có thư riêng, vẫn có một lời nhắn đang chờ bạn.</p>
+  <form id="nameForm">
+   <input class="name-input" id="nameInput" autocomplete="name" maxlength="80" placeholder="Nhập tên của bạn..." aria-label="Tên của bạn">
+   <div id="error" aria-live="polite"></div>
+   <button class="primary full" type="submit">Tìm bức thư của mình ✨</button>
+  </form>
+  <div class="tiny">Một chút bí mật, gửi bằng sự chân thành ♡</div>
+ </div>
+</section>
+
+<section id="letterScreen" class="screen">
+ <button class="back" id="backBtn" type="button">← Quay lại</button>
+ <div class="letter-wrap">
+  <article class="letter" id="letter">
+   <div class="letter-top">
+    <div class="flower" aria-label="Bông hoa">🌸</div>
+    <div class="date">20 · 10<br>MỘT LỜI NHẮN NHỎ</div>
+   </div>
+   <div class="eyebrow" id="letterEyebrow">DÀNH TẶNG BẠN</div>
+   <h2 id="letterTitle">Gửi một đóa hoa</h2>
+   <p class="to-line" id="letterTo">Thân gửi bạn,</p>
+   <div class="letter-body" id="letterBody"></div>
+   <div class="letter-sign" id="letterSign">Tặng bạn với tình yêu thương cao nhất ♡</div>
+   <div class="letter-footer"><span>Một lời chúc nhỏ dành riêng cho bạn</span><span>♡ 20/10 ♡</span></div>
+  </article>
+ </div>
+</section>
+
+<script>
+const PRIVATE_LETTERS = {
+  "Nguyễn Vũ Bảo Ngân": {
+    title: "Gửi Ngân,",
+    content: "T chúc m một ngày 20-10 hạnh phúc, phát huy điểm mạnh, theo đuổi đam mê và mãi xinh đẹp như Bảo Ngân mà t từng biết nhé. Mãi yêu ❤️",
+    sign: "Quân"
+  },
+  "Trần Nhật Anh": {
+    title: "Gửi Nhật Anh",
+    content: "T mong rằng m sẽ là một cô gái năng động, tràn trề sức sống nhé! Chúc m 20-10 hạnh phúc! Thèm kẹo không? Mai t mang cho? 🍬",
+    sign: "Quân"
+  },
+  "Lương Phương Thảo": {
+    title: "Gửi Thảo!",
+    content: "Nhanh thật, tụi mình quen nhau gần một tháng rồi đó. Hi vọng rằng m sẽ đủ dũng khí để theo đuổi đam mê nhé ❤️ T ngóng được nghe m đàn lắm 👌",
+    sign: "Quân"
+  },
+  "Đặng Thu Trang": {
+    title: "Gửi cô Trang,",
+    content: "Năm nay con không còn được gặp cô nhiều. Con sẽ gửi cô tất cả tình yêu thương của học trò với cô giáo mình thương nhất. Con chúc cô mãi xinh đẹp, khỏe mạnh và mưa thuận gió hòa (nói cách khác là một năm học thuận lợi). Con hi vọng rằng có thể gặp cô thêm nhiều lần nữa. Mãi yêu cô ❤️",
+    sign: "Quân"
+  },
+  "Đặng Minh Phúc An": {
+    title: "Gửi An,",
+    content: "Chúc em một ngày 20-10 hạnh phúc nhé! Anh mong rằng em vẫn vui khi đến trường. Cố gắng học hành nhé. Dốc mọi tâm huyết! 🌷",
+    sign: "Quân"
+  },
+  "Nguyễn Thị Kiều Oanh": {
+    title: "Gửi cô Oanh,",
+    content: "Con chúc cô mãi hạnh phúc, mạnh khỏe, mưa thuận gió hòa và mãi xinh đẹp. Chúc cô có ngày 20-10 hạnh phúc. 🌸",
+    sign: "Quân"
+  }
+};
+
+const COMMON_LETTER = {
+  title: "Gửi bạn yêu,",
+  content: "Các bạn là một phần không thể thiếu của thế gian này. Chúc các bạn, các cô mãi xinh đẹp, tươi như hoa 🌷, mãi theo đuổi ước mơ nhé! 20-10 hạnh phúc nha! 💗",
+  sign: "Quân"
+};
+
+const screens=[...document.querySelectorAll('.screen')];
+function showScreen(id){screens.forEach(s=>s.classList.toggle('active',s.id===id));window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelector('#bouquetBtn').addEventListener('click',()=>{showScreen('nameScreen');setTimeout(()=>document.querySelector('#nameInput').focus({preventScroll:true}),350)});
+
+function normalizeName(s){return s.normalize('NFC').trim().replace(/\s+/g,' ').toLocaleLowerCase('vi-VN')}
+function findPrivateLetter(name){
+ const key=normalizeName(name);
+ for(const [candidate,letter] of Object.entries(PRIVATE_LETTERS)){
+  if(normalizeName(candidate)===key)return {letter,name:candidate,private:true};
+ }
+ return null;
+}
+function renderLetter(data,recipient,isPrivate){
+ document.querySelector('#letterTitle').textContent=data.title||'Một lời nhắn dành cho bạn';
+ document.querySelector('#letterTo').textContent=isPrivate?'Thân gửi '+recipient+',':'Thân gửi bạn,';
+ document.querySelector('#letterEyebrow').textContent=isPrivate?'MỘT BỨC THƯ RIÊNG':'MỘT LỜI CHÚC GỬI BẠN';
+ document.querySelector('#letterSign').textContent=data.sign||'Quân';
+ const body=document.querySelector('#letterBody');
+ body.replaceChildren();
+ const paragraph=document.createElement('p');
+ paragraph.textContent=(data.content||'').normalize('NFC');
+ body.appendChild(paragraph);
+ showScreen('letterScreen');
+}
+document.querySelector('#nameForm').addEventListener('submit',e=>{
+ e.preventDefault();const name=document.querySelector('#nameInput').value.trim();
+ if(!name){document.querySelector('#error').textContent='Bạn nhập tên trước nhé 🌷';document.querySelector('#nameInput').focus();return}
+ document.querySelector('#error').textContent='';
+ const match=findPrivateLetter(name);
+ if(match)renderLetter(match.letter,match.name,true);
+ else renderLetter(COMMON_LETTER,name,false);
+});
+document.querySelector('#backBtn').addEventListener('click',()=>showScreen('nameScreen'));
+// Gentle pointer tilt on desktop; touch scrolling and text interaction remain available.
+const letter=document.querySelector('#letter');
+letter.addEventListener('pointermove',e=>{
+ if(e.pointerType==='touch')return;
+ const r=letter.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+ letter.style.transform=`rotateX(${(-y*2.5).toFixed(2)}deg) rotateY(${(x*3.5).toFixed(2)}deg)`;
+});
+letter.addEventListener('pointerleave',()=>letter.style.transform='rotateX(0deg) rotateY(0deg)');
+</script>
+</body>
+</html>
